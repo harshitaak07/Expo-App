@@ -1,8 +1,15 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/data/quesdata.dart';
-import 'package:quiz_app/question_screen.dart';
-import 'package:quiz_app/resultsscreen.dart';
+import 'package:quiz_app/qrresultscreen.dart';
+import 'package:quiz_app/scanner.dart';
 import 'package:quiz_app/startscreen.dart';
+
+var active = 'start-screen';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -12,30 +19,14 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-  List<String> selected = [];
-  var active = 'start-screen';
-
   void switchScreen() {
     setState(() {
       active = 'question-screen';
     });
   }
 
-  void choices(String answer) {
-    selected.add(answer);
-
-    if (selected.length == quesdata.length) {
-      setState(
-        () {
-          active = 'results-screen';
-        },
-      );
-    }
-  }
-
   void restartQuiz() {
     setState(() {
-      selected = [];
       active = 'start-screen';
     });
   }
@@ -45,14 +36,11 @@ class _QuizState extends State<Quiz> {
     Widget Screen = Startscreen(switchScreen);
 
     if (active == 'question-screen') {
-      Screen = QuesScreen(onselect: choices);
+      Screen = qrquesscreen();
     }
 
     if (active == 'results-screen') {
-      Screen = Results(
-        chosen: selected,
-        restart: restartQuiz,
-      );
+      Screen = Correct();
     }
 
     return MaterialApp(
@@ -69,5 +57,79 @@ class _QuizState extends State<Quiz> {
         ),
       ),
     );
+  }
+}
+
+class qrquesscreen extends StatefulWidget {
+  const qrquesscreen({super.key});
+
+  @override
+  State<qrquesscreen> createState() => _qrquesscreenState();
+}
+
+class _qrquesscreenState extends State<qrquesscreen> {
+  //var currentqindex = Random().nextInt(5);
+  var currentqindex = 0;
+
+  String qrCode = 'Unknown';
+
+  void check(String qrans) {
+    setState(() {
+      if (qrans == currentqindex.toString()) {
+        active = 'results-screen';
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final current = quesdata[currentqindex];
+    return SizedBox(
+      width: double.infinity,
+      child: Container(
+        margin: const EdgeInsets.all(40),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              current.text,
+              style: GoogleFonts.lato(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            ElevatedButton(
+              onPressed: () => scanQRCode(),
+              child: Text('CLICK'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future<void> scanQRCode() async {
+    try {
+      final qrCode = await FlutterBarcodeScanner.scanBarcode(
+        '#ff6666',
+        'Cancel',
+        true,
+        ScanMode.QR,
+      );
+
+      if (!mounted) return;
+
+      setState(() {
+        this.qrCode = qrCode;
+        check(qrCode);
+      });
+    } on PlatformException {
+      qrCode = 'Failed to get platform version.';
+    }
   }
 }
