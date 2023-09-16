@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gif/flutter_gif.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Startscreen extends StatelessWidget {
-  const Startscreen(this.startQuiz, {super.key});
+  Startscreen(this.startQuiz, {super.key});
 
   final void Function() startQuiz;
 
@@ -13,14 +14,16 @@ class Startscreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Image.asset(
-            'assets/images/quiz-logo.png',
+            'assets/images/codex.jpg',
             width: 300,
+            height: 300,
           ),
           const SizedBox(
             height: 80,
           ),
           Text(
-            'Learn Flutter the fun way!',
+            'CODEX QUIZ \n Lets get started with it',
+            textAlign: TextAlign.center,
             style: GoogleFonts.museoModerno(color: Colors.white, fontSize: 24),
           ),
           const SizedBox(
@@ -30,7 +33,7 @@ class Startscreen extends StatelessWidget {
             onPressed: startQuiz,
             style: const ButtonStyle(
               backgroundColor:
-                  MaterialStatePropertyAll<Color>(Colors.deepPurple),
+                  MaterialStatePropertyAll<Color>(Color(0xFFF5753B)),
             ),
             child: const Text('Start Quiz'),
           )

@@ -41,21 +41,43 @@ class Results extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('You answered $numcorr out of $totques quesions correctly!'),
+            Center(
+              child: Text(
+                'You answered $numcorr out of $totques questions correctly!\n',
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                    color: Color(0xFFF5753B),
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            const Text(
+              'Now Register Below !',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold),
+            ),
             const SizedBox(
               height: 30,
             ),
-            quessummary(summarydata),
-            const SizedBox(
-              height: 30,
-            ),
-            const SizedBox(
-              height: 30,
+            Container(
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(16.0)),
+              ),
+              child: Image.asset('assets/images/codexqr.jpg'),
             ),
             TextButton.icon(
               onPressed: restart,
-              label: const Text('Restart Quiz!'),
-              icon: const Icon(Icons.restart_alt),
+              label: const Text(
+                'Restart Quiz!',
+                style: TextStyle(color: Color(0xFFF5753B), fontSize: 15),
+              ),
+              icon: const Icon(
+                Icons.restart_alt,
+                color: Color(0xFFF5753B),
+              ),
             )
           ],
         ),

@@ -2,54 +2,44 @@ import 'package:quiz_app/question.dart';
 
 final quesdata = [
   Ques(
-    'What are the main building blocks of Flutter UIs?',
+    'What is handshaking  in the area of network communication ?',
     [
-      'Widgets',
-      'Components',
-      'Blocks',
-      'Functions',
-    ],
-  ),
-  Ques('How are Flutter UIs built?', [
-    'By combining widgets in code',
-    'By combining widgets in a visual editor',
-    'By defining widgets in config files',
-    'By using XCode for iOS and Android Studio for Android',
-  ]),
-  Ques(
-    'What\'s the purpose of a StatefulWidget?',
-    [
-      'Update UI as data changes',
-      'Update data as UI changes',
-      'Ignore data changes',
-      'Render UI that does not depend on data',
+      '2 modems exchanging inforamtion',
+      'Two technicians Closing a deal',
+      '2 modems connecting',
     ],
   ),
   Ques(
-    'Which widget should you try to use more often: StatelessWidget or StatefulWidget?',
+      'What is a trial-and-error method used to decode encrypted data through exhaustive effort rather than employing intellectual strategies?',
+      [
+        'Brute-force cracking',
+        'Serendipity',
+        'Cryptanalysis',
+        'Chaffing and winnowing',
+      ]),
+  Ques(
+    'Rivest-Shamir-Adleman, or RSA, is an algorithm used for symmetric key cryptography.',
     [
-      'StatelessWidget',
-      'StatefulWidget',
-      'Both are equally good',
+      'False',
+      'True',
+    ],
+  ),
+  Ques(
+    'Which cryptography approach is most often used by today\'s internet businesses and users?',
+    [
+      'Public key infrastructure',
+      'Output feedback',
+      'Encrypting File System',
       'None of the above',
     ],
   ),
   Ques(
-    'What happens if you change data in a StatelessWidget?',
+    'What is the name of the encryption/decryption key known only to the party or parties that exchange secret messages?',
     [
-      'The UI is not updated',
-      'The UI is updated',
-      'The closest StatefulWidget is updated',
-      'Any nested StatefulWidgets are updated',
-    ],
-  ),
-  Ques(
-    'How should you update data inside of StatefulWidgets?',
-    [
-      'By calling setState()',
-      'By calling updateData()',
-      'By calling updateUI()',
-      'By calling updateState()',
+      'Private key',
+      'Security token',
+      'Digital certificate',
+      'E-signature',
     ],
   ),
 ];

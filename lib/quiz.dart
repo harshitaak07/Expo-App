@@ -36,7 +36,7 @@ class _QuizState extends State<Quiz> {
   void restartQuiz() {
     setState(() {
       selected = [];
-      active = 'question-screen';
+      active = 'start-screen';
     });
   }
 
@@ -61,8 +61,8 @@ class _QuizState extends State<Quiz> {
         body: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
-              Color.fromARGB(255, 31, 10, 68),
-              Color.fromARGB(255, 57, 28, 106)
+              Color.fromARGB(255, 0, 0, 0),
+              Color.fromARGB(255, 29, 29, 29)
             ], begin: Alignment.topLeft, end: Alignment.bottomRight),
           ),
           child: Screen,
