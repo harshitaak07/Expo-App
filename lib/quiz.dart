@@ -69,8 +69,8 @@ class qrquesscreen extends StatefulWidget {
 }
 
 class _qrquesscreenState extends State<qrquesscreen> {
-  //var currentqindex = Random().nextInt(5);
-  var currentqindex = 0;
+  var currentqindex = Random().nextInt(5);
+  //var currentqindex = 0;
 
   void check(String qrans) {
     setState(() {
