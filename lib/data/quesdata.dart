@@ -1,6 +1,6 @@
 import 'package:quiz_app/question.dart';
 
-final quesdata = [
+/*final quesdata = [
   Ques(
     'What is handshaking  in the area of network communication ?',
     [
@@ -42,4 +42,20 @@ final quesdata = [
       'E-signature',
     ],
   ),
+];*/
+
+final quesdata = [
+  'What is the term for a code or puzzle that involves rearranging the letters of a word or phrase to make a new one?',
+  '\nI!\n-----\nME\nCan you decipher the hidden word or phrase in this rebus puzzle?',
+  '3 18 25 16 20 9 3   8 21 14 20\nDecode the numbers to reveal the answer.',
+  '🦁🗿\nWhat famous Egyptian  historical building does this represent',
+  'If the Russian Captial had an element, its number would be ?'
+];
+
+final ansdata = [
+  'anagram',
+  'I dont understand',
+  'cryptic hunt',
+  'sphinx',
+  '115'
 ];

@@ -71,6 +71,7 @@ flutter:
     - assets/images/codexqr.jpg
     - assets/images/winking.gif
     - assets/images/Owl-8-1.svg
+    - assets/images/pirate.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

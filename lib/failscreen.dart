@@ -3,7 +3,12 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class failscreen extends StatelessWidget {
-  const failscreen({super.key});
+  const failscreen({
+    super.key,
+    required this.restart,
+  });
+
+  final void Function() restart;
 
   @override
   Widget build(BuildContext context) {
@@ -14,17 +19,39 @@ class failscreen extends StatelessWidget {
           const SizedBox(
             height: 80,
           ),
-          SvgPicture.asset('assets/images/Owl-8-1.svg',width: 100, height: 100,),
+          Image.asset(
+            'assets/images/pirate.png',
+            width: 100,
+            height: 100,
+          ),
           const SizedBox(
             height: 30,
           ),
           Text(
             'Nay',
             textAlign: TextAlign.center,
-            style: GoogleFonts.poppins(color: Colors.grey, fontSize: 14, fontWeight: FontWeight.w500,),
+            style: GoogleFonts.poppins(
+              color: Colors.grey,
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          ElevatedButton.icon(
+            style: const ButtonStyle(
+                backgroundColor:
+                    MaterialStatePropertyAll<Color>(Color(0xFFFF7A01))),
+            onPressed: restart,
+            label: const Text(
+              'Restart Quiz!',
+              style: TextStyle(color: Colors.white, fontSize: 15),
+            ),
+            icon: const Icon(
+              Icons.restart_alt,
+              color: Colors.white,
+            ),
           ),
         ],
-        ),
-      );
+      ),
+    );
   }
 }

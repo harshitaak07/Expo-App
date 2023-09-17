@@ -28,6 +28,12 @@ class _QuizState extends State<Quiz> {
     });
   }
 
+  void restart() {
+    setState(() {
+      active = 'start-screen';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget Screen = Startscreen(switchScreen);
@@ -37,11 +43,11 @@ class _QuizState extends State<Quiz> {
     }
 
     if (active == 'results-screen') {
-      Screen = Correct();
+      Screen = Correct(restart: restart);
     }
 
     if (active == 'fail-screen') {
-      Screen = failscreen();
+      Screen = failscreen(restart: restart);
     }
 
     return MaterialApp(
@@ -49,7 +55,7 @@ class _QuizState extends State<Quiz> {
       home: Scaffold(
         body: Container(
           decoration: const BoxDecoration(
-             color: Color(0xFFFFF4EA),
+            color: Color(0xFFFFF4EA),
           ),
           child: Screen,
         ),
@@ -71,7 +77,7 @@ class _qrquesscreenState extends State<qrquesscreen> {
 
   void check(String qrans) {
     setState(() {
-      if (qrans == currentqindex.toString()) {
+      if (qrans == ansdata[currentqindex]) {
         active = 'results-screen';
       } else {
         active = 'fail-screen';
@@ -91,7 +97,7 @@ class _qrquesscreenState extends State<qrquesscreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              current.text,
+              current,
               style: GoogleFonts.poppins(
                   color: Colors.black,
                   fontSize: 18,
@@ -104,11 +110,10 @@ class _qrquesscreenState extends State<qrquesscreen> {
             ElevatedButton(
               onPressed: () => scanQRCode(),
               style: const ButtonStyle(
-              backgroundColor:
-                  MaterialStatePropertyAll<Color>(Color(0xFFFF7A01)),
-              shadowColor: 
-              MaterialStatePropertyAll<Color>(Color(0xFFD34B20))
-            ),
+                  backgroundColor:
+                      MaterialStatePropertyAll<Color>(Color(0xFFFF7A01)),
+                  shadowColor:
+                      MaterialStatePropertyAll<Color>(Color(0xFFD34B20))),
               child: const Text('Click'),
             ),
           ],
