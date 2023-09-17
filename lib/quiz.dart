@@ -7,10 +7,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/data/quesdata.dart';
 import 'package:quiz_app/failscreen.dart';
 import 'package:quiz_app/qrresultscreen.dart';
+import 'package:quiz_app/restartcontrol.dart';
 import 'package:quiz_app/scanner.dart';
 import 'package:quiz_app/startscreen.dart';
 
 var active = 'start-screen';
+String qrC = 'Unknown';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -70,8 +72,6 @@ class _qrquesscreenState extends State<qrquesscreen> {
   //var currentqindex = Random().nextInt(5);
   var currentqindex = 0;
 
-  String qrCode = 'Unknown';
-
   void check(String qrans) {
     setState(() {
       if (qrans == currentqindex.toString()) {
@@ -126,11 +126,12 @@ class _qrquesscreenState extends State<qrquesscreen> {
       if (!mounted) return;
 
       setState(() {
-        this.qrCode = qrCode;
-        check(qrCode);
+        qrC = qrCode;
+        check(qrC);
+        HotRestartController.performHotRestart(context);
       });
     } on PlatformException {
-      qrCode = 'Failed to get platform version.';
+      qrC = 'Failed to get platform version.';
     }
   }
 }
