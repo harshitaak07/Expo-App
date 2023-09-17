@@ -13,13 +13,13 @@ class _QRScanPageState extends State<QRScanPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text('trial'),
+          title: const Text('trial'),
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
+              const Text(
                 'Scan Result',
                 style: TextStyle(
                   fontSize: 16,
@@ -27,19 +27,19 @@ class _QRScanPageState extends State<QRScanPage> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Text(
                 '$qrCode',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
                 ),
               ),
-              SizedBox(height: 72),
+              const SizedBox(height: 72),
               ElevatedButton(
                 onPressed: () => scanQRCode(),
-                child: Text('CLICK'),
+                child: const Text('CLICK'),
               ),
             ],
           ),
