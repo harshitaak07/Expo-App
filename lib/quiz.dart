@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/data/quesdata.dart';
+import 'package:quiz_app/failscreen.dart';
 import 'package:quiz_app/qrresultscreen.dart';
 import 'package:quiz_app/scanner.dart';
 import 'package:quiz_app/startscreen.dart';
@@ -25,12 +26,6 @@ class _QuizState extends State<Quiz> {
     });
   }
 
-  void restartQuiz() {
-    setState(() {
-      active = 'start-screen';
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     Widget Screen = Startscreen(switchScreen);
@@ -41,6 +36,10 @@ class _QuizState extends State<Quiz> {
 
     if (active == 'results-screen') {
       Screen = Correct();
+    }
+
+    if (active == 'fail-screen') {
+      Screen = failscreen();
     }
 
     return MaterialApp(
@@ -77,6 +76,8 @@ class _qrquesscreenState extends State<qrquesscreen> {
     setState(() {
       if (qrans == currentqindex.toString()) {
         active = 'results-screen';
+      } else {
+        active = 'fail-screen';
       }
     });
   }
