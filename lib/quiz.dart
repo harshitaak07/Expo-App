@@ -47,10 +47,7 @@ class _QuizState extends State<Quiz> {
       home: Scaffold(
         body: Container(
           decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [
-              Color.fromARGB(255, 0, 0, 0),
-              Color.fromARGB(255, 29, 29, 29)
-            ], begin: Alignment.topLeft, end: Alignment.bottomRight),
+             color: Color(0xFFFFF4EA),
           ),
           child: Screen,
         ),
@@ -95,9 +92,9 @@ class _qrquesscreenState extends State<qrquesscreen> {
           children: [
             Text(
               current.text,
-              style: GoogleFonts.lato(
-                  color: Colors.white,
-                  fontSize: 24,
+              style: GoogleFonts.poppins(
+                  color: Colors.black,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
@@ -106,7 +103,13 @@ class _qrquesscreenState extends State<qrquesscreen> {
             ),
             ElevatedButton(
               onPressed: () => scanQRCode(),
-              child: Text('CLICK'),
+              style: const ButtonStyle(
+              backgroundColor:
+                  MaterialStatePropertyAll<Color>(Color(0xFFFF7A01)),
+              shadowColor: 
+              MaterialStatePropertyAll<Color>(Color(0xFFD34B20))
+            ),
+              child: const Text('Click'),
             ),
           ],
         ),

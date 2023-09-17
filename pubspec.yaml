@@ -42,6 +42,7 @@ dependencies:
   path_provider: ^2.1.1
   qr_flutter: ^4.1.0
   flutter_barcode_scanner: ^2.0.0
+  flutter_svg: ^2.0.7
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +70,7 @@ flutter:
     - assets/images/codex.jpg
     - assets/images/codexqr.jpg
     - assets/images/winking.gif
+    - assets/images/Owl-8-1.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
