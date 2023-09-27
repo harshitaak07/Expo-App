@@ -28,7 +28,7 @@ class failscreen extends StatelessWidget {
             height: 30,
           ),
           Text(
-            'Nay',
+            'Oops!Wrong\n Want another chance?\nRegister Now!!',
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
               color: Colors.grey,

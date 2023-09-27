@@ -28,7 +28,7 @@ class Correct extends StatelessWidget {
             height: 30,
           ),
           Text(
-            'Yay',
+            'Yay!! You are already a pro!\nRegister now !',
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
               color: Colors.grey,
