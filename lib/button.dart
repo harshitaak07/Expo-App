@@ -12,14 +12,15 @@ class ElButton extends StatelessWidget {
       onPressed: ontap,
       style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 40),
-          backgroundColor: const Color(0xFFF5753B),
-          foregroundColor: Colors.black,
+          backgroundColor: const Color(0xFFFF7A01),
+          foregroundColor: const Color(0xFFFFFFFF),
+          shadowColor: const Color(0xFFD34B20),
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(40))),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
       child: Text(
         anstext,
         textAlign: TextAlign.center,
-        style: const TextStyle(fontWeight: FontWeight.bold),
+        style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
       ),
     );
   }
