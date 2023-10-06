@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gif/flutter_gif.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_svg/svg.dart';
 
 class Startscreen extends StatelessWidget {
   Startscreen(this.startQuiz, {super.key});
@@ -13,18 +14,28 @@ class Startscreen extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Image.asset(
-            'assets/images/codex.jpg',
-            width: 300,
-            height: 300,
+          SvgPicture.asset(
+            'assets/images/Owl-8-1.svg',
+            width: 150,
+            height: 150,
           ),
           const SizedBox(
-            height: 80,
+            height: 30,
           ),
           Text(
-            'CODEX QUIZ \n Lets get started with it',
+            'The Cryptic Hunt 2.0',
             textAlign: TextAlign.center,
-            style: GoogleFonts.museoModerno(color: Colors.white, fontSize: 24),
+            style: GoogleFonts.poppins(
+                color: Colors.black, fontSize: 28, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            'Experience the hunt!',
+            textAlign: TextAlign.center,
+            style: GoogleFonts.poppins(
+                color: Colors.grey, fontSize: 14, fontWeight: FontWeight.w500),
           ),
           const SizedBox(
             height: 30,
@@ -32,10 +43,11 @@ class Startscreen extends StatelessWidget {
           ElevatedButton(
             onPressed: startQuiz,
             style: const ButtonStyle(
-              backgroundColor:
-                  MaterialStatePropertyAll<Color>(Color(0xFFF5753B)),
-            ),
-            child: const Text('Start Quiz'),
+                backgroundColor:
+                    MaterialStatePropertyAll<Color>(Color(0xFFFF7A01)),
+                shadowColor:
+                    MaterialStatePropertyAll<Color>(Color(0xFFD34B20))),
+            child: const Text('Generate my question!!'),
           )
         ],
       ),
